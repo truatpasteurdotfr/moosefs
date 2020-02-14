@@ -163,11 +163,6 @@ MooseFS network packet dump utility
 make %{?_smp_mflags}
 
 %install
-getent group %{_groupname} >/dev/null || groupadd -r %{_groupname}
-getent passwd %{_username} >/dev/null || \
-    useradd -r -g %{_groupname} -d %{_localstatedir}/mfs -s /sbin/nologin \
-    -c "MooseFS" %{_username}
-
 rm -rf $RPM_BUILD_ROOT
 
 make install \
